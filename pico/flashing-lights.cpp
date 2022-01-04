@@ -101,5 +101,13 @@ int main()
 
   memcpy(pixel_phis, pixel_phis_0, N_PIXELS * sizeof(uint32_t));
 
+  while (1)
+  {
+      sleep_ms(10);
+      one_frame();
+      refresh_all();
+  }
+
+  // For completeness, but we never get here...
   pico7219_destroy(pico7219, FALSE);
 }
