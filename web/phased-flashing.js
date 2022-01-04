@@ -143,6 +143,15 @@ class PhasingDemo {
         this.phis_0 = this.phis.slice();
     }
 
+    leapToFrameFun(idx) {
+        return () => {
+            this.frameIdx = idx;
+            this.phis = this.phis_0.map(
+                (ph, i) => (ph + idx * this.phiIncrs[i]) % this.durationFrames
+            );
+        };
+    }
+
     initPhasor() {
         const canvas = $(`.${this.slug}.phasor`)[0];
 
