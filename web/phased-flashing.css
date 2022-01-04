@@ -36,3 +36,10 @@
 .demo-container .phasors .clickable {
     cursor: pointer;
 }
+
+.circular-graph {
+    margin: 0rem 0rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
