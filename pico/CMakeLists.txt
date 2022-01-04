@@ -11,7 +11,9 @@ pico_sdk_init()
 
 add_executable(flashing-lights
     flashing-lights.cpp
+    phi-arrays.cpp
+    pico7219.c
 )
 
 pico_add_extra_outputs(flashing-lights)
-target_link_libraries(flashing-lights pico_stdlib)
+target_link_libraries(flashing-lights pico_stdlib hardware_spi)
