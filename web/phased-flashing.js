@@ -234,3 +234,6 @@ class PhasingDemo {
 
 let allDemos = [];
 const launchDemo = (...args) => allDemos.push(new PhasingDemo(...args));
+
+$(document).ready(() => {
+});
