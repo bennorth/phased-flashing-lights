@@ -94,6 +94,9 @@ class PhasingDemo {
 
         this.initFixedDisplays();
         this.initPhasor();
+
+        const canvas = $(`.${slug}.lights`)[0];
+        this.matrix = new LEDMatrix(canvas, fullCellSize, nRows, nCols);
     }
 
     initFixedDisplays() {
