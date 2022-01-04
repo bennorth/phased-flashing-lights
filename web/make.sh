@@ -21,3 +21,14 @@ if [ ! $checksum = "u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" ]; then
     echo Bad checksum for $JQUERY_JS_URL
     exit 1
 fi
+
+pandoc -s \
+       -f gfm \
+       --template template.html \
+       -o dist/index.html \
+       -c ./github-markdown.css \
+       -c ./phased-flashing.css \
+       --metadata title="Two pictures in a grid of flashing lights" \
+       index.md
+
+cp phased-flashing.js phased-flashing.css dist
