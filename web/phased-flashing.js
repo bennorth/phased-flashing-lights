@@ -86,5 +86,28 @@ class PhasingDemo {
         this.freq0 = freq0;
 
         this.durationFrames = this.freq0 * Frames_Per_Second;
+
+        this.initPhiAndPhiIncr();
+    }
+
+    initPhiAndPhiIncr() {
+        const nPixels = this.nRows * this.nCols;
+
+        let allIdxs = [...Array(nPixels).keys()];
+        shuffleArray(allIdxs);
+
+        // Start with arbitrary values; will be overwritten.
+        this.phis = this.images[0].map(_ => 0);
+        this.phiIncrs = this.images[0].map(_ => 0);
+
+        let choices = phiIncrChoices(this.freq0, nPixels);
+
+        for (let i of allIdxs) {
+            const match = (this.images[0][i] === this.images[1][i]);
+            this.phiIncrs[i] = (match ? choices.even : choices.odd).shift();
+
+            const lit0 = (this.images[0][i] === 1);
+            this.phis[i] = ((lit0 ? 1 : 3) * this.durationFrames / 4) | 0;
+        }
     }
 }
