@@ -26,6 +26,20 @@ static const uint32_t Centre_n_cycles = 3600;
 static const uint32_t Duration_frames = Centre_n_cycles * Frames_per_second;
 static const uint32_t Half_duration_frames = Duration_frames / 2;
 
+static uint8_t nibble(
+    uint8_t idx_0,
+    uint8_t off_76,
+    uint8_t off_54,
+    uint8_t off_32,
+    uint8_t off_10
+) {
+    const uint32_t * pxl_0 = pixel_phis + idx_0;
+    return ((pxl_0[off_10] < Half_duration_frames ? 0x03 : 0)
+            | (pxl_0[off_32] < Half_duration_frames ? 0x0c : 0)
+            | (pxl_0[off_54] < Half_duration_frames ? 0x30 : 0)
+            | (pxl_0[off_76] < Half_duration_frames ? 0xc0 : 0));
+}
+
 int main()
 {
 }
