@@ -12,3 +12,17 @@ mkdir -p build
     cd build
     cmake ..
 )
+
+[ -d venv ] || {
+    echo Creating Python venv...
+
+    python3 -m venv venv
+    (
+        . venv/bin/activate
+        pip install --upgrade pip
+        pip install pytest
+    )
+}
+
+echo
+echo Now run '"'source venv/bin/activate'"'
