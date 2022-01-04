@@ -68,4 +68,12 @@ const phiIncrChoices = (freq0, n) => {
 };
 
 class PhasingDemo {
+    constructor(slug, images, nRows, nCols, fullCellSize, freq0) {
+        this.slug = slug;
+        this.images = images;
+        this.nRows = nRows;
+        this.nCols = nCols;
+        this.fullCellSize = fullCellSize;
+        this.freq0 = freq0;
+    }
 }
