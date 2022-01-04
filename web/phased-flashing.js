@@ -306,4 +306,6 @@ $(document).ready(() => {
         setInterval(toggle, 500, 0);
         setInterval(toggle, 475, 1);
     })();
+
+    $(".circular-graph").each(function(_index) { drawCircularGraph(this); });
 });
