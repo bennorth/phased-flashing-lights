@@ -295,4 +295,15 @@ let allDemos = [];
 const launchDemo = (...args) => allDemos.push(new PhasingDemo(...args));
 
 $(document).ready(() => {
+    (() => {
+        let lights = [0, 0];
+        const matrix = new LEDMatrix($(".demo-1x2.lights")[0], 60, 1, 2);
+        const toggle = (idx) => {
+            lights[idx] = 1 - lights[idx];
+            matrix.refresh(lights);
+        };
+        matrix.refresh([0, 0]);
+        setInterval(toggle, 500, 0);
+        setInterval(toggle, 475, 1);
+    })();
 });
