@@ -82,6 +82,8 @@ const phiIncrChoices = (freq0, n) => {
 };
 
 class PhasingDemo {
+    // TODO: "freq0" is a bad name. It's actually the number of seconds
+    // the whole cycle takes, setting the centre frequency to 1Hz.
     constructor(slug, images, nRows, nCols, fullCellSize, freq0) {
         this.slug = slug;
         this.images = images;
