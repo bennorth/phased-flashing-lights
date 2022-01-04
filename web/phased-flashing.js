@@ -1,5 +1,6 @@
 const LED_Side_Proportion = 0.9;
 const Matrix_Border_Proportion = 1.0 - LED_Side_Proportion;
+const Frames_Per_Second = 60;
 
 class LEDMatrix {
     constructor(canvas, cellSize, nRows, nCols) {
@@ -75,5 +76,7 @@ class PhasingDemo {
         this.nCols = nCols;
         this.fullCellSize = fullCellSize;
         this.freq0 = freq0;
+
+        this.durationFrames = this.freq0 * Frames_Per_Second;
     }
 }
