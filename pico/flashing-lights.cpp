@@ -15,6 +15,12 @@ typedef struct Pico7219 Pico7219;
 
 static Pico7219 * pico7219;
 
+static const size_t N_PIXELS = 64;
+
+extern uint32_t pixel_phis_0[];
+extern uint32_t pixel_phi_incrs[];
+uint32_t pixel_phis[N_PIXELS];
+
 int main()
 {
 }
