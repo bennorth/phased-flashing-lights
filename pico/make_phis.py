@@ -8,6 +8,13 @@ from dataclasses import dataclass
 from typing import List
 
 
+N_Pixels = 64
+Image_Filename_Template = "image-{}.txt"
+
+Centre_N_Periods = 3600
+Duration_Frames = Centre_N_Periods * 100
+
+
 def image_from_filename(filename):
     with open(filename, "rt") as f_in:
         rows = [[int(ch) for ch in line.strip()] for line in f_in]
