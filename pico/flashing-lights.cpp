@@ -80,6 +80,15 @@ static void refresh_all()
   pico7219_set_row_bits(pico7219, 7, &row_bits[12]);
 }
 
+void leap_to_frame(uint32_t frame_idx)
+{
+    for (size_t i = 0; i < N_PIXELS; ++i)
+        pixel_phis[i] = (
+            (pixel_phis_0[i] + frame_idx * pixel_phi_incrs[i])
+            % Duration_frames
+        );
+}
+
 void one_frame()
 {
     for (uint8_t i = 0; i != N_PIXELS; ++i) {
