@@ -1,0 +1,27 @@
+The write-up content file
+
+    index.md
+
+is Copyright 2022 Ben North and is made available under the
+CC-BY-NC-3.0 licence.
+
+The code file
+
+    phased-flashing.js
+
+is Copyright 2022 Ben North and is made available under the GPLv3.
+The top-level file GNU-GPL-v3.txt contains the licence text.
+
+The development scripts and support files
+
+    make.sh
+    serve.sh
+    serve.py
+    template.html
+    include-livereload.html
+
+and the styling file
+
+    phased-flashing.css
+
+are hereby placed into the public domain.
