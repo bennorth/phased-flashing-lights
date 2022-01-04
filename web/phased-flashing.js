@@ -1,5 +1,6 @@
 const LED_Side_Proportion = 0.9;
 const Matrix_Border_Proportion = 1.0 - LED_Side_Proportion;
+const Fixed_Display_Scale = 0.3;
 const Frames_Per_Second = 60;
 
 // Thanks, https://stackoverflow.com/questions/2450954
@@ -88,6 +89,23 @@ class PhasingDemo {
         this.durationFrames = this.freq0 * Frames_Per_Second;
 
         this.initPhiAndPhiIncr();
+
+        this.initFixedDisplays();
+    }
+
+    initFixedDisplays() {
+        const cellSize = Fixed_Display_Scale * this.fullCellSize;
+
+        this.images.forEach((image, i) => {
+            const canvas = $(`.${this.slug}.lights-${i}`)[0];
+            const matrix = new LEDMatrix(
+                canvas,
+                cellSize,
+                this.nRows,
+                this.nCols
+            );
+            matrix.refresh(image);
+        });
     }
 
     initPhiAndPhiIncr() {
