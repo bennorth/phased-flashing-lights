@@ -21,6 +21,11 @@ extern uint32_t pixel_phis_0[];
 extern uint32_t pixel_phi_incrs[];
 uint32_t pixel_phis[N_PIXELS];
 
+static const uint32_t Frames_per_second = 100;
+static const uint32_t Centre_n_cycles = 3600;
+static const uint32_t Duration_frames = Centre_n_cycles * Frames_per_second;
+static const uint32_t Half_duration_frames = Duration_frames / 2;
+
 int main()
 {
 }
