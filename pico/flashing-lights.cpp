@@ -27,6 +27,9 @@ static const uint32_t Centre_n_cycles = 3600;
 static const uint32_t Duration_frames = Centre_n_cycles * Frames_per_second;
 static const uint32_t Half_duration_frames = Duration_frames / 2;
 
+static const uint32_t Leap_lead_in_frames = 15 * Frames_per_second;
+
+
 static uint8_t nibble(
     uint8_t idx_0,
     uint8_t off_76,
