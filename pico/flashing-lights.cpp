@@ -6,6 +6,9 @@
 #include <cstring>
 #include "pico7219.h"
 
+static const unsigned PIN_BUTTON_1 = 2;
+static const unsigned PIN_BUTTON_2 = 3;
+
 static const uint8_t PIN_MOSI = 19;
 static const uint8_t PIN_SCK = 18;
 static const uint8_t PIN_CS = 17;
@@ -112,6 +115,14 @@ int main()
   pico7219_set_intensity(pico7219, 15);
 
   memcpy(pixel_phis, pixel_phis_0, N_PIXELS * sizeof(uint32_t));
+
+  gpio_init(PIN_BUTTON_1);
+  gpio_set_dir(PIN_BUTTON_1, GPIO_IN);
+  gpio_pull_up(PIN_BUTTON_1);
+
+  gpio_init(PIN_BUTTON_2);
+  gpio_set_dir(PIN_BUTTON_2, GPIO_IN);
+  gpio_pull_up(PIN_BUTTON_2);
 
   while (1)
   {
