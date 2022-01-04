@@ -3,6 +3,7 @@
 #include "hardware/gpio.h"
 #include "pico/binary_info.h"
 #include <cstdint>
+#include <cstring>
 #include "pico7219.h"
 
 static const uint8_t PIN_MOSI = 19;
@@ -97,6 +98,8 @@ int main()
 
   pico7219_switch_off_all(pico7219, TRUE);
   pico7219_set_intensity(pico7219, 15);
+
+  memcpy(pixel_phis, pixel_phis_0, N_PIXELS * sizeof(uint32_t));
 
   pico7219_destroy(pico7219, FALSE);
 }
