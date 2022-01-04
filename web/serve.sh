@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# To install live reload machinery:
+#
+#     npm install livereloadx
+
 # TERM everything in process group when script exits.
 # https://stackoverflow.com/a/2173421
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
