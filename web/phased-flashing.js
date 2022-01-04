@@ -1,6 +1,8 @@
 const LED_Side_Proportion = 0.9;
 const Matrix_Border_Proportion = 1.0 - LED_Side_Proportion;
 const Fixed_Display_Scale = 0.3;
+const Phasor_Indicator_Radius_Proportion = 0.025;
+const Phasor_Display_Scale = 0.3;
 const Frames_Per_Second = 60;
 
 // Thanks, https://stackoverflow.com/questions/2450954
@@ -91,6 +93,7 @@ class PhasingDemo {
         this.initPhiAndPhiIncr();
 
         this.initFixedDisplays();
+        this.initPhasor();
     }
 
     initFixedDisplays() {
@@ -127,5 +130,30 @@ class PhasingDemo {
             const lit0 = (this.images[0][i] === 1);
             this.phis[i] = ((lit0 ? 1 : 3) * this.durationFrames / 4) | 0;
         }
+    }
+
+    initPhasor() {
+        const canvas = $(`.${this.slug}.phasor`)[0];
+
+        const cellSize = this.fullCellSize * Phasor_Display_Scale;
+        const wd = cellSize * this.nCols;
+        const ht = cellSize * this.nRows;
+
+        canvas.width = wd;
+        canvas.height = ht;
+
+        $(canvas).css({ width: wd, height: ht, backgroundColor: "black" });
+
+        const context = canvas.getContext("2d");
+        context.translate(wd / 2, ht / 2);
+        context.scale(1.0, -1.0);
+        context.strokeStyle = "#fff";
+        context.lineWidth = 2.0;
+
+        const height = this.fullCellSize * this.nRows;
+        const indicatorRadius = height * Phasor_Indicator_Radius_Proportion;
+
+        this.phasorInfo = { canvas, context, indicatorRadius };
+    }
     }
 }
