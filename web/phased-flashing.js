@@ -100,17 +100,15 @@ const phiIncrChoices = (freq0, n) => {
 };
 
 class PhasingDemo {
-    // TODO: "freq0" is a bad name. It's actually the number of seconds
-    // the whole cycle takes, setting the centre frequency to 1Hz.
-    constructor(slug, images, nRows, nCols, fullCellSize, freq0) {
+    constructor(slug, images, nRows, nCols, fullCellSize, totalCycleLength) {
         this.slug = slug;
         this.images = images;
         this.nRows = nRows;
         this.nCols = nCols;
         this.fullCellSize = fullCellSize;
-        this.freq0 = freq0;
+        this.totalCycleLength = totalCycleLength;
 
-        this.durationFrames = this.freq0 * Frames_Per_Second;
+        this.durationFrames = this.totalCycleLength * Frames_Per_Second;
 
         this.initPhiAndPhiIncr();
 
@@ -152,7 +150,7 @@ class PhasingDemo {
         this.phis = this.images[0].map(_ => 0);
         this.phiIncrs = this.images[0].map(_ => 0);
 
-        let choices = phiIncrChoices(this.freq0, nPixels);
+        let choices = phiIncrChoices(this.totalCycleLength, nPixels);
 
         for (let i of allIdxs) {
             const match = (this.images[0][i] === this.images[1][i]);
