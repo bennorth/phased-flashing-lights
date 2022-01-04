@@ -22,12 +22,18 @@ if [ ! $checksum = "u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" ]; then
     exit 1
 fi
 
+EXTRA_SCRIPT=""
+if [ "$1" = "dev" ]; then
+    EXTRA_SCRIPT="-A ./include-livereload.html"
+fi
+
 pandoc -s \
        -f gfm \
        --template template.html \
        -o dist/index.html \
        -c ./github-markdown.css \
        -c ./phased-flashing.css \
+       $EXTRA_SCRIPT \
        --metadata title="Two pictures in a grid of flashing lights" \
        index.md
 
