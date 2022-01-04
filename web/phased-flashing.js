@@ -22,4 +22,20 @@ class LEDMatrix {
         this.context = canvas.getContext("2d");
         this.context.translate(border, border);
     }
+
+    lightOn(r, c) {
+        const ctxt = this.context;
+
+        ctxt.save();
+        ctxt.translate(c * this.cellSize, r * this.cellSize);
+        ctxt.beginPath();
+        ctxt.fillStyle = "#f82";
+        ctxt.moveTo(0, 0);
+        ctxt.lineTo(0, this.ledSide);
+        ctxt.lineTo(this.ledSide, this.ledSide);
+        ctxt.lineTo(this.ledSide, 0);
+        ctxt.closePath();
+        ctxt.fill();
+        ctxt.restore();
+    }
 }
