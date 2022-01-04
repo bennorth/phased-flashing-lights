@@ -87,4 +87,16 @@ void one_frame()
 
 int main()
 {
+  pico7219 = pico7219_create(SPI_CHAN,
+                             800 * 1000,  // Originally 1500 * 1000; trying slower to see if more reliable
+                             PIN_MOSI,
+                             PIN_SCK,
+                             PIN_CS,
+                             CHAIN_LEN,
+                             FALSE);
+
+  pico7219_switch_off_all(pico7219, TRUE);
+  pico7219_set_intensity(pico7219, 15);
+
+  pico7219_destroy(pico7219, FALSE);
 }
