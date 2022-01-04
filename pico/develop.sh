@@ -13,6 +13,10 @@ mkdir -p build
     cmake ..
 )
 
+[ -e phi-arrays.cpp ] || {
+    python3 make_phis.py > phi-arrays.cpp
+}
+
 [ -d venv ] || {
     echo Creating Python venv...
 
