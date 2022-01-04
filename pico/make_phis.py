@@ -4,6 +4,7 @@ Script to generate CPP code initialising phi and Dphi arrays
 
 from functools import reduce
 from operator import concat
+from random import shuffle
 from dataclasses import dataclass
 from typing import List
 
@@ -46,6 +47,31 @@ class PhiIncrChoices:
             odd.append(freq0 - 2 * i - 1)
 
         return cls(even, odd)
+
+
+def choose_phis_dphis():
+    images = [
+        image_from_filename(Image_Filename_Template.format(i))
+        for i in [0, 1]
+    ]
+
+    all_idxs = list(range(N_Pixels))
+    shuffle(all_idxs)
+
+    # Start with arbitrary values; will be overwritten.
+    phis = [0] * N_Pixels
+    phi_incrs = [0] * N_Pixels
+
+    choices = PhiIncrChoices.make(Centre_N_Periods, N_Pixels)
+
+    for i in all_idxs:
+        match = (images[0][i] == images[1][i])
+        phi_incrs[i] = (choices.even if match else choices.odd).pop(0)
+
+        lit0 = (images[0][i] == 1)
+        phis[i] = (1 if lit0 else 3) * Duration_Frames // 4;
+
+    return phis, phi_incrs
 
 
 def cpp_array(name, values):
