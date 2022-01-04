@@ -66,3 +66,6 @@ const phiIncrChoices = (freq0, n) => {
 
     return { even: evenChoices, odd: oddChoices };
 };
+
+class PhasingDemo {
+}
