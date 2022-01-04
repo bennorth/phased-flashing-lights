@@ -5,6 +5,7 @@ const Fixed_Display_Scale = 0.3;
 const Phasor_Indicator_Radius_Proportion = 0.025;
 const Phasor_Display_Scale = 0.3;
 const Frames_Per_Second = 60;
+const Leap_Lead_In_Seconds = 4.0;
 
 // Thanks, https://stackoverflow.com/questions/2450954
 const shuffleArray = (xs) => {
@@ -99,6 +100,8 @@ class PhasingDemo {
         const canvas = $(`.${slug}.lights`)[0];
         this.matrix = new LEDMatrix(canvas, fullCellSize, nRows, nCols);
 
+        this.initLeapOnClick();
+
         this.frameIdx = 0;
         this.tick = this.tick.bind(this);
         window.requestAnimationFrame(this.tick);
@@ -150,6 +153,16 @@ class PhasingDemo {
                 (ph, i) => (ph + idx * this.phiIncrs[i]) % this.durationFrames
             );
         };
+    }
+
+    initLeapOnClick() {
+        const leadInFrames = Leap_Lead_In_Seconds * Frames_Per_Second;
+
+        const leapFrame0 = this.durationFrames - leadInFrames;
+        $(`.${this.slug}.lights-0`).click(this.leapToFrameFun(leapFrame0));
+
+        const leapFrame1 = (this.durationFrames / 2 - leadInFrames) | 0;
+        $(`.${this.slug}.lights-1`).click(this.leapToFrameFun(leapFrame1));
     }
 
     initPhasor() {
