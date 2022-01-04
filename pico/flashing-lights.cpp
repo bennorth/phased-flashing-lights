@@ -94,6 +94,19 @@ void leap_to_frame(uint32_t frame_idx)
 
 void one_frame()
 {
+    bool button_1_pressed = !gpio_get(PIN_BUTTON_1);
+    bool button_2_pressed = !gpio_get(PIN_BUTTON_2);
+
+    if (button_1_pressed) {
+        leap_to_frame(Duration_frames - Leap_lead_in_frames);
+        return;
+    }
+
+    if (button_2_pressed) {
+        leap_to_frame(Duration_frames / 2 - Leap_lead_in_frames);
+        return;
+    }
+
     for (uint8_t i = 0; i != N_PIXELS; ++i) {
       pixel_phis[i] += pixel_phi_incrs[i];
       if (pixel_phis[i] > Duration_frames)
