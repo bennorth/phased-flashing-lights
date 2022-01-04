@@ -1,3 +1,4 @@
+const Two_Pi = 2.0 * Math.PI;
 const LED_Side_Proportion = 0.9;
 const Matrix_Border_Proportion = 1.0 - LED_Side_Proportion;
 const Fixed_Display_Scale = 0.3;
@@ -157,6 +158,29 @@ class PhasingDemo {
         const indicatorRadius = height * Phasor_Indicator_Radius_Proportion;
 
         this.phasorInfo = { canvas, context, indicatorRadius };
+    }
+
+    refreshPhasor() {
+        const info = this.phasorInfo;
+        let ctxt = info.context;
+        const wd = info.canvas.width;
+        const ht = info.canvas.height;
+        const r = wd * 0.4;
+
+        ctxt.fillStyle = "#aaa";
+        ctxt.fillRect(-wd / 2, -ht / 2, wd, ht);
+
+        ctxt.beginPath();
+        ctxt.arc(0, 0, r, 0, Two_Pi);
+        ctxt.stroke();
+
+        const th = Two_Pi * this.frameIdx / this.durationFrames;
+        const [dotX, dotY] = [r * Math.cos(th), r * Math.sin(th)];
+
+        ctxt.fillStyle = "#fff";
+        ctxt.beginPath();
+        ctxt.arc(dotX, dotY, info.indicatorRadius, 0, Two_Pi);
+        ctxt.fill();
     }
     }
 }
