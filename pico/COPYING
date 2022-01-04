@@ -1,0 +1,33 @@
+The code files
+
+    pico7219.c
+    pico7219.h
+
+are Copyright 2021 Kevin Boone and are used here under the GPLv3.  The
+top-level file GNU-GPL-v3.txt contains the licence text.
+
+
+The code files
+
+    make_phis.py
+    test_make_phis.py
+    flashing-lights.cpp
+
+are Copyright 2022 Ben North and are made available under the GPLv3.
+The top-level file GNU-GPL-v3.txt contains the licence text.
+
+
+The set-up script
+
+    develop.sh
+
+and the example image files
+
+    image-0.txt
+    image-1.txt
+
+and the CMake specification file
+
+    CMakeLists.txt
+
+are all hereby placed into the public domain.
