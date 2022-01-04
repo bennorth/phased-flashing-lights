@@ -2,3 +2,4 @@
 /pico_sdk_import.cmake
 /venv/
 /__pycache__/
+phi-arrays.cpp
