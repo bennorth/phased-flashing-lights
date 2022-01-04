@@ -232,6 +232,65 @@ class PhasingDemo {
     }
 }
 
+const drawCircularGraph = (div) => {
+    const SZ = 240;
+    const jCanvas = $("<canvas></canvas>");
+    const canvas = jCanvas[0];
+    canvas.width = canvas.height = SZ;
+    jCanvas.css({ width: SZ, height: SZ, backgroundColor: "#b8b8b8" });
+    $(div).append(jCanvas);
+
+    const lightFreq = JSON.parse(div.dataset.freq);
+    const lightPhase = JSON.parse(div.dataset.phase);
+
+    const ctxt = canvas.getContext("2d");
+    ctxt.translate(SZ / 2, SZ / 2);
+
+    // Put up with left-handed coord system; we only label ½ so it doesn't
+    // matter which way round we go.
+
+    const rTrack = SZ * 0.425;
+
+    // Radial indicator lines for t=0 and t=½:
+    ctxt.lineWidth = 2.0;
+    ctxt.strokeStyle = "white";
+    ctxt.beginPath();
+    ctxt.moveTo(-rTrack, 0);
+    ctxt.lineTo(-(rTrack * 0.8), 0);
+    ctxt.stroke();
+    ctxt.beginPath();
+    ctxt.moveTo(rTrack, 0);
+    ctxt.lineTo(rTrack * 0.8, 0);
+    ctxt.stroke();
+
+    // Labels for indicator lines:
+    const rText = 0.325 * SZ;
+    ctxt.font = "20px sans-serif";
+    ctxt.textBaseline = "middle";
+    ctxt.fillStyle = "black";
+    ctxt.textAlign = "right";
+    ctxt.fillText("t = 0", rText, 0);
+    ctxt.textAlign = "left";
+    ctxt.fillText("t = ½", -rText, 0);
+
+    // Black background circle for 'light off':
+    ctxt.lineWidth = 6.0;
+    ctxt.strokeStyle = "black";
+    ctxt.beginPath();
+    ctxt.arc(0, 0, rTrack, 0, Two_Pi);
+    ctxt.stroke();
+
+    // Orange segments where light is on:
+    ctxt.strokeStyle = "#f82";
+    for (let i = 0; i < lightFreq; ++i) {
+        ctxt.beginPath();
+        ctxt.arc(0, 0, rTrack,
+                 (i + lightPhase - 0.25) * Two_Pi / lightFreq,
+                 (i + lightPhase + 0.25) * Two_Pi / lightFreq);
+        ctxt.stroke();
+    }
+};
+
 let allDemos = [];
 const launchDemo = (...args) => allDemos.push(new PhasingDemo(...args));
 
