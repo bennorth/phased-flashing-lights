@@ -138,6 +138,9 @@ class PhasingDemo {
             const lit0 = (this.images[0][i] === 1);
             this.phis[i] = ((lit0 ? 1 : 3) * this.durationFrames / 4) | 0;
         }
+
+        // Copy for leaping directly to particular frame.
+        this.phis_0 = this.phis.slice();
     }
 
     initPhasor() {
