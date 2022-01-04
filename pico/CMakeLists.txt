@@ -16,4 +16,8 @@ add_executable(flashing-lights
 )
 
 pico_add_extra_outputs(flashing-lights)
-target_link_libraries(flashing-lights pico_stdlib hardware_spi hardware_gpio)
+target_link_libraries(flashing-lights
+    pico_stdlib
+    hardware_spi
+    hardware_gpio
+)
