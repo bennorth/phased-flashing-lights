@@ -231,3 +231,6 @@ class PhasingDemo {
         window.requestAnimationFrame(this.tick);
     }
 }
+
+let allDemos = [];
+const launchDemo = (...args) => allDemos.push(new PhasingDemo(...args));
