@@ -40,6 +40,42 @@ static uint8_t nibble(
             | (pxl_0[off_76] < Half_duration_frames ? 0xc0 : 0));
 }
 
+static void refresh_all()
+{
+  uint8_t row_bits[4 * CHAIN_LEN];
+
+  // Hardly worth working out a loop to do this:
+
+  row_bits[0] = nibble(0 * 8, 0, 1, 2, 3);
+  row_bits[1] = nibble(4 * 8, 0, 1, 2, 3);
+  row_bits[2] = nibble(3 * 8, 7, 6, 5, 4);
+  row_bits[3] = nibble(7 * 8, 7, 6, 5, 4);
+
+  row_bits[4] = nibble(1 * 8 , 0, 1, 2, 3);
+  row_bits[5] = nibble(5 * 8, 0, 1, 2, 3);
+  row_bits[6] = nibble(2 * 8, 7, 6, 5, 4);
+  row_bits[7] = nibble(6 * 8, 7, 6, 5, 4);
+
+  row_bits[8] = nibble(2 * 8, 0, 1, 2, 3);
+  row_bits[9] = nibble(6 * 8, 0, 1, 2, 3);
+  row_bits[10] = nibble(1 * 8, 7, 6, 5, 4);
+  row_bits[11] = nibble(5 * 8, 7, 6, 5, 4);
+
+  row_bits[12] = nibble(3 * 8, 0, 1, 2, 3);
+  row_bits[13] = nibble(7 * 8, 0, 1, 2, 3);
+  row_bits[14] = nibble(0 * 8, 7, 6, 5, 4);
+  row_bits[15] = nibble(4 * 8, 7, 6, 5, 4);
+
+  pico7219_set_row_bits(pico7219, 0, &row_bits[0]);
+  pico7219_set_row_bits(pico7219, 1, &row_bits[0]);
+  pico7219_set_row_bits(pico7219, 2, &row_bits[4]);
+  pico7219_set_row_bits(pico7219, 3, &row_bits[4]);
+  pico7219_set_row_bits(pico7219, 4, &row_bits[8]);
+  pico7219_set_row_bits(pico7219, 5, &row_bits[8]);
+  pico7219_set_row_bits(pico7219, 6, &row_bits[12]);
+  pico7219_set_row_bits(pico7219, 7, &row_bits[12]);
+}
+
 int main()
 {
 }
