@@ -49,3 +49,20 @@ class LEDMatrix {
         ctxt.restore();
     }
 }
+
+// Assumes that freq0 is even.
+const phiIncrChoices = (freq0, n) => {
+    let evenChoices = [freq0];
+    for (let i = 1; i < (n + 1) / 2; ++i) {
+        evenChoices.push(freq0 + 2 * i);
+        evenChoices.push(freq0 - 2 * i);
+    }
+
+    let oddChoices = [];
+    for (let i = 0; i < n / 2; ++i) {
+        oddChoices.push(freq0 + 2 * i + 1);
+        oddChoices.push(freq0 - 2 * i - 1);
+    }
+
+    return { even: evenChoices, odd: oddChoices };
+};
