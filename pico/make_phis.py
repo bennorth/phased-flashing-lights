@@ -4,9 +4,10 @@ Script to generate CPP code initialising phi and Dphi arrays
 
 from functools import reduce
 from operator import concat
-from random import shuffle
+from random import shuffle, seed
 from dataclasses import dataclass
 from typing import List
+import sys
 
 
 N_Pixels = 64
@@ -84,3 +85,13 @@ def cpp_array(name, values):
         txt += f"  {chunk_txt}{suffix}\n"
     txt += "};\n"
     return txt
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        seed(int(sys.argv[1]))
+
+    phis, phi_incrs = choose_phis_dphis()
+    print("#include <cstdint>\n")
+    print(cpp_array("pixel_phis_0", phis))
+    print(cpp_array("pixel_phi_incrs", phi_incrs))
