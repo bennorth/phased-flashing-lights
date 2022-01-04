@@ -98,6 +98,10 @@ class PhasingDemo {
 
         const canvas = $(`.${slug}.lights`)[0];
         this.matrix = new LEDMatrix(canvas, fullCellSize, nRows, nCols);
+
+        this.frameIdx = 0;
+        this.tick = this.tick.bind(this);
+        window.requestAnimationFrame(this.tick);
     }
 
     initFixedDisplays() {
@@ -182,5 +186,21 @@ class PhasingDemo {
         ctxt.arc(dotX, dotY, info.indicatorRadius, 0, Two_Pi);
         ctxt.fill();
     }
+
+    tick() {
+        this.frameIdx += 1;
+
+        this.phiIncrs.forEach((dPhi, i) => {
+            this.phis[i] += dPhi
+            if (this.phis[i] >= this.durationFrames)
+                this.phis[i] -= this.durationFrames;
+        });
+
+        const lit = this.phis.map(phi => (phi < this.durationFrames / 2));
+        this.matrix.refresh(lit);
+
+        this.refreshPhasor();
+
+        window.requestAnimationFrame(this.tick);
     }
 }
