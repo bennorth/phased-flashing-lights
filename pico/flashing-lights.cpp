@@ -76,6 +76,15 @@ static void refresh_all()
   pico7219_set_row_bits(pico7219, 7, &row_bits[12]);
 }
 
+void one_frame()
+{
+    for (uint8_t i = 0; i != N_PIXELS; ++i) {
+      pixel_phis[i] += pixel_phi_incrs[i];
+      if (pixel_phis[i] > Duration_frames)
+        pixel_phis[i] -= Duration_frames;
+    }
+}
+
 int main()
 {
 }
