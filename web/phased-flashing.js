@@ -2,6 +2,14 @@ const LED_Side_Proportion = 0.9;
 const Matrix_Border_Proportion = 1.0 - LED_Side_Proportion;
 const Frames_Per_Second = 60;
 
+// Thanks, https://stackoverflow.com/questions/2450954
+const shuffleArray = (xs) => {
+    for (let i = xs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [xs[i], xs[j]] = [xs[j], xs[i]];
+    }
+};
+
 class LEDMatrix {
     constructor(canvas, cellSize, nRows, nCols) {
         this.canvas = canvas;
