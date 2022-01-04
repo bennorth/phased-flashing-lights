@@ -23,7 +23,7 @@
 #include <stdio.h> // For printf(). Don't need this in the Pico build
 #endif
 
-#include "pico7219/pico7219.h"
+#include "pico7219.h"
 
 #define PICO7219_INTENSITY_REG 0x0A
 #define PICO7219_SHUTDOWN_REG 0x0C
