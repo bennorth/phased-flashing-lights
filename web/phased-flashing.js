@@ -23,6 +23,16 @@ class LEDMatrix {
         this.context.translate(border, border);
     }
 
+    refresh(img) {
+        this.context.clearRect(0, 0, this.width, this.height);
+        let r = 0, c = 0;
+        img.forEach((pixel) => {
+            if (pixel) this.lightOn(r, c);
+            c += 1;
+            if (c === this.nCols) { c = 0; r += 1; }
+        });
+    }
+
     lightOn(r, c) {
         const ctxt = this.context;
 
