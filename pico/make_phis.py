@@ -39,3 +39,15 @@ class PhiIncrChoices:
             odd.append(freq0 - 2 * i - 1)
 
         return cls(even, odd)
+
+
+def cpp_array(name, values):
+    n_values = len(values)
+    txt = f"uint32_t {name}[{n_values}] = {{\n"
+    for idx0 in range(0, n_values, 12):
+        chunk = values[idx0 : idx0 + 12]
+        chunk_txt = ", ".join(map(str, chunk))
+        suffix = "," if idx0 < n_values - 12 else ""
+        txt += f"  {chunk_txt}{suffix}\n"
+    txt += "};\n"
+    return txt
