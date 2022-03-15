@@ -274,22 +274,21 @@ const drawCircularGraph = (div) => {
     ctxt.strokeStyle = "white";
     ctxt.beginPath();
     ctxt.moveTo(-rTrack, 0);
-    ctxt.lineTo(-(rTrack * 0.8), 0);
+    ctxt.lineTo(-(rTrack * 1.2), 0);
     ctxt.stroke();
     ctxt.beginPath();
     ctxt.moveTo(rTrack, 0);
-    ctxt.lineTo(rTrack * 0.8, 0);
+    ctxt.lineTo(rTrack * 1.2, 0);
     ctxt.stroke();
 
     // Labels for indicator lines:
-    const rText = 0.325 * SZ;
     ctxt.font = "20px sans-serif";
     ctxt.textBaseline = "middle";
     ctxt.fillStyle = "black";
     ctxt.textAlign = "right";
-    ctxt.fillText("t = 0", rText, 0);
+    ctxt.fillText("t = 0", 0.7 * SZ , 0);
     ctxt.textAlign = "left";
-    ctxt.fillText("t = ½", -rText, 0);
+    ctxt.fillText("t = ½", -0.715 * SZ, 0);
 
     // Black background circle for 'light off':
     ctxt.lineWidth = 6.0;
