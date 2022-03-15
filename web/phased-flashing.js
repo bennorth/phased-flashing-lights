@@ -306,6 +306,42 @@ const drawCircularGraph = (div) => {
                  (i + lightPhase + 0.25) * Two_Pi / lightFreq);
         ctxt.stroke();
     }
+
+    let frameIdx = 0;
+    const durationSeconds = 60;
+    const durationFrames = durationSeconds * Frames_Per_Second;
+    const drawPointerAndLight = () => {
+        const th = -Two_Pi * frameIdx / durationFrames;
+        ctxt.beginPath();
+        ctxt.arc(0, 0, rTrack * 0.95, 0, Two_Pi);
+        ctxt.fillStyle = "#b8b8b8";
+        ctxt.fill();
+        ctxt.beginPath();
+        ctxt.moveTo(0, 0);
+        ctxt.lineTo(
+            rTrack * 0.925 * Math.cos(th),
+            rTrack * 0.925 * Math.sin(th)
+        );
+
+        ctxt.lineWidth = 2.0;
+        ctxt.strokeStyle = "white";
+        ctxt.stroke();
+
+        const ledBasePh = lightFreq * frameIdx / durationFrames;
+        const ledPh = (ledBasePh + lightPhase + 0.75) % 1;
+        ctxt.fillStyle = ledPh >= 0.5 ? "#f82" : "black";
+        ctxt.beginPath();
+        ctxt.arc(0, 0, rTrack * 0.4, 0, Two_Pi);
+        ctxt.fill();
+
+        frameIdx += 1;
+        if (frameIdx == durationFrames)
+            frameIdx = 0;
+
+        requestAnimationFrame(drawPointerAndLight);
+    };
+
+    drawPointerAndLight();
 };
 
 let allDemos = [];
