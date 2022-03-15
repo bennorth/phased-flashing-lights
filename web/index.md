@@ -40,10 +40,10 @@ cycles per minute, starting half-way through an "on" state.
 <div class="circular-graph" data-freq="30" data-phase="0.0"></div>
 
 This picture represents the light's behaviour on a big circular track.
-Imagine a second hand sweeping round anticlockwise, starting with
-*t*&nbsp;=&nbsp;0 at the 3-o'clock position.  At any instant, if it
-points at a black segment, the light is off; if it points at an orange
-segment, the light is on.
+A pointer sweeps round anticlockwise, completing one revolution per
+minute, starting with *t*&nbsp;=&nbsp;0 at the 3-o'clock position.  At
+any instant, if it points at a black segment, the light is off; if it
+points at an orange segment, the light is on.
 
 We set things up so the light was on at t=0.  It is also on at t=1/2,
 because 30 is an even number.
