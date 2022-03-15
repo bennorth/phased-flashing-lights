@@ -45,8 +45,8 @@ minute, starting with *t*&nbsp;=&nbsp;0 at the 3-o'clock position.  At
 any instant, if it points at a black segment, the light is off; if it
 points at an orange segment, the light is on.
 
-We set things up so the light was on at t=0.  It is also on at t=1/2,
-because 30 is an even number.
+We set things up so the light was on at the instant *t*=0.  It is also
+on at *t*=1/2, because 30 is an even number.
 
 If we wanted this light to be *off* at both t=0 and t=1/2, we could
 offset its phase by half a cycle:
