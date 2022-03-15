@@ -250,17 +250,19 @@ class PhasingDemo {
 
 const drawCircularGraph = (div) => {
     const SZ = 240;
+    const EXTRA_HALF_WD = 60;
     const jCanvas = $("<canvas></canvas>");
     const canvas = jCanvas[0];
-    canvas.width = canvas.height = SZ;
-    jCanvas.css({ width: SZ, height: SZ, backgroundColor: "#b8b8b8" });
+    canvas.width = SZ + 2 * EXTRA_HALF_WD;
+    canvas.height = SZ;
+    jCanvas.css({ width: canvas.width, height: canvas.height, backgroundColor: "#b8b8b8" });
     $(div).append(jCanvas);
 
     const lightFreq = JSON.parse(div.dataset.freq);
     const lightPhase = JSON.parse(div.dataset.phase);
 
     const ctxt = canvas.getContext("2d");
-    ctxt.translate(SZ / 2, SZ / 2);
+    ctxt.translate(EXTRA_HALF_WD + SZ / 2, SZ / 2);
 
     // Put up with left-handed coord system; we only label ½ so it doesn't
     // matter which way round we go.
