@@ -98,30 +98,33 @@ minute".
 
 ## Two pictures
 
-Look at lights in a grid.  Want it to show one image at t=0 and
-another image at t=1/2.  Choose a 'centre' frequency, and then follow
-the above process to choose a frequency and phase for each light in
-the grid according to whether it should be lit or unlit at each of
-*t*&nbsp;=&nbsp;0 and *t*&nbsp;=&nbsp;½.  Choose different frequencies
-for each light, all close to the centre frequency so that the period
-when the lights are approximately in (anti-)phase is reasonably long.
-Each light's real-world frequency should be somewhere around 1Hz to
-look reasonable.  Try to avoid clusters of nearby lights which flash
-with similar frequencies.
+We can now think about a grid of lights, acting as pixels of an image.
+We want the grid to show one image at t=0 and another image at t=½.
+We can choose a 'centre' frequency, and then follow the above process
+to choose a frequency and phase for each light in the grid according
+to whether it should be lit or unlit at each of *t*&nbsp;=&nbsp;0 (for
+the first image) and *t*&nbsp;=&nbsp;½ (for the second image).  We
+should choose different frequencies for each light (to make it
+interesting), and choose all the frequencies close to the centre
+frequency (so that the period when the lights are approximately in
+(anti-)phase is reasonably long).  Each light's real-world frequency
+should be somewhere around 1Hz to look reasonable.
 
 For many lights, we have to use a longer base time than "one minute"
 to get a reasonable result, but the ideas are all the same.  There is
-a trade-off because we want the overall pattern to not be *too* long
-otherwise you never see the pictures.
+a trade-off because we want the overall cycle to not be *too* long
+otherwise you hardly ever see the pictures.
 
 The result is something which for a lot of the time looks like random
-flashing lights, but now and then coheres into one of two pictures.
-For the small 3×3 example below, the two pictures are an "O" and an
-"X".  The circle-with-dot in the middle shows where the pattern is in
-its global cycle.  When at 3 o'clock (*t*&nbsp;=&nbsp;0), the big
-picture looks like the right-hand small picture, flashing on and off.
-When at 9 o'clock (*t*&nbsp;=&nbsp;½), the big picture looks like the
-left-hand small picture, flashing on and off.
+flashing lights, but now and then coheres into one of two images
+flashing "positive and negative".  For the small 3×3 example below,
+the two pictures are an "O" and an "X".  In the triptych at the
+bottom, the circle-with-moving-bead in the middle shows where the
+pattern is in its global cycle.  When the bead is at 3 o'clock
+(*t*&nbsp;=&nbsp;0), the big picture looks like the right-hand small
+picture, flashing "positive and negative".  When the bead is at 9
+o'clock (*t*&nbsp;=&nbsp;½), the big picture looks like the left-hand
+small picture, flashing "positive and negative".
 
 <div class="demo-outer">
 <div class="demo-container">
