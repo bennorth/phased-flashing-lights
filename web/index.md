@@ -174,3 +174,11 @@ to work in integers throughout.  (The same idea is used for the
 JavaScript running the demos on this page.)
 
 PHOTOS of front and back.
+
+
+## Source code
+
+The source code for this page and the C++ code for the Pico is
+available at GitHub:
+
+* GITHUB ADDRESS LINK
