@@ -38,3 +38,10 @@ pandoc -s \
        index.md
 
 cp phased-flashing.js phased-flashing.css dist
+
+if ! command -v convert > /dev/null; then
+    echo "Imagemagick utility 'convert' not found; cannot scale images"
+else
+    convert ../photos/front.jpg -resize 360x360 dist/front.jpg
+    convert ../photos/back.jpg -resize 360x360 dist/back.jpg
+fi
