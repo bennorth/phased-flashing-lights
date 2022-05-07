@@ -186,6 +186,6 @@ JavaScript running the demos on this page.)
 ## Source code
 
 The source code for this page and the C++ code for the Pico is
-available at GitHub:
+available on GitHub:
 
 * GITHUB ADDRESS LINK
