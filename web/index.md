@@ -1,7 +1,11 @@
 # Two pictures in a grid of flashing lights
 
-Always liked effect you get when two lights are flashing at not quite
-the same frequency.  The changing phase relationship is interesting.
+[[PHOTO small of front of physical thing]]
+
+I've always liked the effect you get when two lights are flashing at
+not quite the same frequency.  The pair of lights goes through
+intervals where they both flash on and off together, and intervals
+where one light is on when the other is off.
 
 <div class="demo-outer" style="float:right;margin-left:1.5rem;margin-top:0rem;">
 <div class="demo-container">
@@ -9,16 +13,26 @@ the same frequency.  The changing phase relationship is interesting.
 </div>
 </div>
 
-E.g., the right-hand light here is flashing about 5% more quickly than
-the left-hand light.  The lights seem to go through periods of
-flashing together and of one flashing on when the other flashes off.
+The right-hand light here is flashing about 5% more quickly than the
+left-hand light.  If you watch it for half a minute or so, you can see
+the "flashing together" intervals and the "flashing opposite"
+intervals.
 
-On one occasion was behind several cyclists, and all their back lights
-were flashing, at slightly different frequencies.  Wondered if you
-could arrange a set of lights, each one flashing at a fixed frequency,
-such that every now and then they came into phase and made a picture
-which flashed on and off.  Played for a while, realised could make
-*two* pictures.
+<div class="demo-outer" style="float:left;margin-right:1.5rem;margin-top:0rem;">
+<div class="demo-container">
+<div class="main-LEDs"><canvas class="demo-5x5-static lights"></canvas></div>
+</div>
+</div>
+
+On one occasion, I was behind several cyclists, and all their back
+lights were flashing, at slightly different frequencies.  I wondered
+whether you could arrange a set of lights in a grid, each light
+flashing at a fixed frequency, such that every now and then they came
+into phase and made a picture which flashed, alternating with its
+"negative", as the small + sign to the left.
+
+I played with this for a while, and realised you can make *two*
+pictures.
 
 
 ## Choosing frequencies and phases
