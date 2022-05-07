@@ -160,10 +160,17 @@ Here's a bigger example, which takes three minutes to cycle:
 
 ## Hardware realisation
 
-All well and good but want actual real flashing lights.
+This is all well and good, but I really wanted actual physical
+flashing lights.
 
-Bresenham-like algorithm to work in integers throughout.  (Did same
-for JS running demos on this page.)  Pico.  C++.  Pixel-doubled (in
-software) 8×8 LED matrix.  Wooden frame.
+I built a display using four 8×8 LED matrices, glued together and then
+driven in a pixel-doubled way to keep the 8×8 resolution.  I made the
+frame out of some mahogany (I think), which was going to be thrown
+out.  The whole thing is held together with quite a lot of hot glue.
+
+Controlling it is a Raspberry Pi Pico.  The software is in C++, and
+updates the display at about 100Hz, using a Bresenham-like algorithm
+to work in integers throughout.  (The same idea is used for the
+JavaScript running the demos on this page.)
 
 PHOTOS of front and back.
