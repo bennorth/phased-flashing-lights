@@ -360,6 +360,23 @@ $(document).ready(() => {
         setInterval(toggle, 475, 1);
     })();
 
+    (() => {
+        let lights = [
+            0, 0, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 1, 1, 1, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, 0, 0.
+        ];
+        const matrix = new LEDMatrix($(".demo-5x5-static.lights")[0], 20, 5, 5);
+        const toggle = () => {
+            lights.forEach((x, idx) => { lights[idx] = 1 - x; });
+            matrix.refresh(lights);
+        };
+        matrix.refresh(lights);
+        setInterval(toggle, 1500, 0);
+    })();
+
     $(".circular-graph").each(function(_index) { drawCircularGraph(this); });
 
     launchDemo(
