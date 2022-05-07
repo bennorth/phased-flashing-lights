@@ -43,8 +43,8 @@ Suppose we're trying to make a pattern of flashing lights which
 repeats every minute.  We'll use *t* to say how far through the minute
 we are, so *t* goes from 0 steadily up to 1 over the course of a
 minute, then instantly drops back to 0 again.  We want to make one
-image appear at t=0 and a different image appear at t=1/2.  How can we
-do this?
+image appear at *t* = 0 and a different image appear at *t* = ½.  How
+can we do this?
 
 For the pattern to repeat after a minute, every light must do an
 integer number of on/off cycles in one minute.  We'll first think
@@ -58,15 +58,15 @@ through an "on" state, behaves like this:
 
 This picture represents the light's behaviour on a big circular track.
 A pointer sweeps round anticlockwise, completing one revolution per
-minute, starting with *t*&nbsp;=&nbsp;0 at the 3-o'clock position.  At
+minute, starting with *t* = 0 at the 3-o'clock position.  At
 any instant, if it points at a black segment of the track, the light
 is off; if it points at an orange segment, the light is on.
 
-We set things up so the light was on at the instant *t*=0.  It is also
-on at *t*=1/2, because 30 is an even number.
+We set things up so the light was on at the instant *t* = 0.  It is
+also on at *t* = ½, because 30 is an even number.
 
-If we wanted this light to be *off* at both t=0 and t=1/2, we could
-offset its phase by half a cycle:
+If we wanted this light to be *off* at both *t* = 0 and *t* = ½, we
+could offset its phase by half a cycle:
 
 <div class="circular-graph" data-freq="30" data-phase="0.5"></div>
 
@@ -74,16 +74,16 @@ Now we'll look at a light which does 29 on/off cycles per minute:
 
 <div class="circular-graph" data-freq="29" data-phase="0.0"></div>
 
-This light is on at t=0 but *off* at t=1/2, because 29 is an odd
+This light is on at *t* = 0 but *off* at *t* = ½, because 29 is an odd
 number.
 
-If instead we want this light to be *off* at t=0 and *on* at t=1/2, we
-can offset its phase by half a cycle:
+If instead we want this light to be *off* at *t* = 0 and *on* at
+*t* = ½, we can offset its phase by half a cycle:
 
 <div class="circular-graph" data-freq="29" data-phase="0.5"></div>
 
 Putting this together, we can choose the behaviour of a light at both
-*t*&nbsp;=&nbsp;0 and at *t*&nbsp;=&nbsp;½.
+*t* = 0 and at *t* = ½.
 
 * If light should be *off* at time 0 and at time ½, choose an even
   frequency and a phase offset of ½;
@@ -101,16 +101,16 @@ minute".
 ## Two pictures
 
 We can now think about a grid of lights, acting as pixels of an image.
-We want the grid to show one image at t=0 and another image at t=½.
-We can choose a 'centre' frequency, and then follow the above process
-to choose a frequency and phase for each light in the grid according
-to whether it should be lit or unlit at each of *t*&nbsp;=&nbsp;0 (for
-the first image) and *t*&nbsp;=&nbsp;½ (for the second image).  We
-should choose different frequencies for each light (to make it
-interesting), and choose all the frequencies close to the centre
-frequency (so that the period when the lights are approximately in
-(anti-)phase is reasonably long).  Each light's real-world frequency
-should be somewhere around 1Hz to look reasonable.
+We want the grid to show one image at *t* = 0 and another image at
+*t* = ½.  We can choose a 'centre' frequency, and then follow the
+above process to choose a frequency and phase for each light in the
+grid according to whether it should be lit or unlit at each of *t* = 0
+(for the first image) and *t* = ½ (for the second image).  We should
+choose different frequencies for each light (to make it interesting),
+and choose all the frequencies close to the centre frequency (so that
+the period when the lights are approximately in (anti-)phase is
+reasonably long).  Each light's real-world frequency should be
+somewhere around 1Hz to look reasonable.
 
 For many lights, we have to use a longer base time than "one minute"
 to get a reasonable result, but the ideas are all the same.  There is
@@ -123,10 +123,10 @@ flashing "positive and negative".  For the small 3×3 example below,
 the two pictures are an "O" and an "X".  In the triptych at the
 bottom, the circle-with-moving-bead in the middle shows where the
 pattern is in its global cycle.  When the bead is at 3 o'clock
-(*t*&nbsp;=&nbsp;0), the big picture looks like the right-hand small
-picture, flashing "positive and negative".  When the bead is at 9
-o'clock (*t*&nbsp;=&nbsp;½), the big picture looks like the left-hand
-small picture, flashing "positive and negative".
+(*t* = 0), the big picture looks like the right-hand small picture,
+flashing "positive and negative".  When the bead is at 9 o'clock
+(*t* = ½), the big picture looks like the left-hand small picture,
+flashing "positive and negative".
 
 <div class="demo-outer">
 <div class="demo-container">
