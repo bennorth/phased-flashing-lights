@@ -13,6 +13,8 @@ trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
     exit 1
 }
 
+mkdir -p dist
+
 (
     cd dist
     exec ../node_modules/.bin/livereloadx --delay 100
