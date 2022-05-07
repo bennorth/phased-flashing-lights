@@ -1,5 +1,7 @@
 # Two pictures in a grid of flashing lights
 
+[Ben North](https://github.com/bennorth), May 2022
+
 <div style="text-align:center;margin:1.5rem 0px;">
 <img src="front.jpg" alt="Hardware realisation">
 </div>
@@ -188,4 +190,4 @@ JavaScript running the demos on this page.)
 The source code for this page and the C++ code for the Pico is
 available on GitHub:
 
-* GITHUB ADDRESS LINK
+* https://github.com/bennorth/phased-flashing-lights
