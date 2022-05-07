@@ -282,7 +282,7 @@ const drawCircularGraph = (div) => {
     ctxt.stroke();
 
     // Labels for indicator lines:
-    ctxt.font = "20px sans-serif";
+    ctxt.font = "16px sans-serif";
     ctxt.textBaseline = "middle";
     ctxt.fillStyle = "black";
     ctxt.textAlign = "right";
