@@ -1,6 +1,8 @@
 # Two pictures in a grid of flashing lights
 
-[[PHOTO small of front of physical thing]]
+<div style="text-align:center;margin:1.5rem 0px;">
+<img src="front.jpg" alt="Hardware realisation">
+</div>
 
 I've always liked the effect you get when two lights are flashing at
 not quite the same frequency.  The pair of lights goes through
@@ -173,7 +175,10 @@ updates the display at about 100Hz, using a Bresenham-like algorithm
 to work in integers throughout.  (The same idea is used for the
 JavaScript running the demos on this page.)
 
-PHOTOS of front and back.
+<div style="display:flex;flex-direction:row;justify-content:space-evenly;flex-wrap:wrap;">
+<img style="margin:1rem;" src="front.jpg" alt="Hardware realisation (front)">
+<img style="margin:1rem;" src="back.jpg" alt="Hardware realisation (back)">
+</div>
 
 
 ## Source code
