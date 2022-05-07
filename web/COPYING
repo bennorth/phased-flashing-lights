@@ -12,6 +12,15 @@ The code file
 is Copyright 2022 Ben North and is made available under the GPLv3.
 The top-level file GNU-GPL-v3.txt contains the licence text.
 
+The code file
+
+    jquery-3.6.0.slim.min.js
+
+(which is downloaded by the make.sh script and included in the built
+site) is Copyright the OpenJS Foundation and other contributors, and
+is used under the MIT License; see notice at top of phased-flashing.js
+for details.
+
 The development scripts and support files
 
     make.sh
