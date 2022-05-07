@@ -26,7 +26,7 @@ intervals.
 </div>
 </div>
 
-On one occasion, I was behind several cyclists, and all their back
+Once, I was behind several cyclists, and all their back
 lights were flashing, at slightly different frequencies.  I wondered
 whether you could arrange a set of lights in a grid, each light
 flashing at a fixed frequency, such that every now and then they came
