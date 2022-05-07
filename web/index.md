@@ -37,27 +37,28 @@ pictures.
 
 ## Choosing frequencies and phases
 
-Make a pattern of flashing lights which repeats every minute.  Use *t*
-to say how far through the minute we are, so *t* goes from 0 steadily
-up to 1 over the course of a minute, then instantly drops back to 0
-again.  Want to make one image appear at t=0 and a different image at
-t=1/2.  How?
+Suppose we're trying to make a pattern of flashing lights which
+repeats every minute.  We'll use *t* to say how far through the minute
+we are, so *t* goes from 0 steadily up to 1 over the course of a
+minute, then instantly drops back to 0 again.  We want to make one
+image appear at t=0 and a different image appear at t=1/2.  How can we
+do this?
 
 For the pattern to repeat after a minute, every light must do an
-integer number of cycles in one minute.  We'll first think about what
-happens for lights having different numbers of cycles fitting exactly
-into one minute.
+integer number of on/off cycles in one minute.  We'll first think
+about what happens for lights having different numbers of cycles
+fitting exactly into one minute.
 
-Start by thinking about what happens for a light which has 30 on/off
-cycles per minute, starting half-way through an "on" state.
+A light which has 30 on/off cycles per minute, starting half-way
+through an "on" state, behaves like this:
 
 <div class="circular-graph" data-freq="30" data-phase="0.0"></div>
 
 This picture represents the light's behaviour on a big circular track.
 A pointer sweeps round anticlockwise, completing one revolution per
 minute, starting with *t*&nbsp;=&nbsp;0 at the 3-o'clock position.  At
-any instant, if it points at a black segment, the light is off; if it
-points at an orange segment, the light is on.
+any instant, if it points at a black segment of the track, the light
+is off; if it points at an orange segment, the light is on.
 
 We set things up so the light was on at the instant *t*=0.  It is also
 on at *t*=1/2, because 30 is an even number.
@@ -67,7 +68,7 @@ offset its phase by half a cycle:
 
 <div class="circular-graph" data-freq="30" data-phase="0.5"></div>
 
-Now we'll look at a light which does 29 on/off cycles per minute.
+Now we'll look at a light which does 29 on/off cycles per minute:
 
 <div class="circular-graph" data-freq="29" data-phase="0.0"></div>
 
@@ -79,16 +80,16 @@ can offset its phase by half a cycle:
 
 <div class="circular-graph" data-freq="29" data-phase="0.5"></div>
 
-There are enough degrees of freedom to choose the behaviour of a light
-at both *t*&nbsp;=&nbsp;0 and at *t*&nbsp;=&nbsp;½.
+Putting this together, we can choose the behaviour of a light at both
+*t*&nbsp;=&nbsp;0 and at *t*&nbsp;=&nbsp;½.
 
-* If light should be *off* at time zero and at time ½, choose an even
+* If light should be *off* at time 0 and at time ½, choose an even
   frequency and a phase offset of ½;
-* If light should be *off* at time zero and *on* at time ½, choose an
+* If light should be *off* at time 0 and *on* at time ½, choose an
   odd frequency and a phase offset of ½;
-* If light should be *on* at time zero and *off* at time ½, choose an
+* If light should be *on* at time 0 and *off* at time ½, choose an
   odd frequency and no phase offset;
-* If light should be *on* at time zero and at time ½, choose an even
+* If light should be *on* at time 0 and at time ½, choose an even
   frequency and no phase offset.
 
 Here, "frequency" means "(integer) number of cycles of that light per
