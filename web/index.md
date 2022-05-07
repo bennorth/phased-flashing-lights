@@ -166,13 +166,15 @@ This is all well and good, but I really wanted actual physical
 flashing lights.
 
 I built a display using four 8×8 LED matrices, glued together and then
-driven in a pixel-doubled way to keep the 8×8 resolution.  I made the
-frame out of some mahogany (I think), which was going to be thrown
-out.  The whole thing is held together with quite a lot of hot glue.
+driven in a pixel-doubled way to keep the effective resolution as 8×8.
+I made the frame out of some mahogany (I think), which was going to be
+thrown out.  The whole thing is held together with quite a lot of hot
+glue, and looks better from the front.
 
-Controlling it is a Raspberry Pi Pico.  The software is in C++, and
-updates the display at about 100Hz, using a Bresenham-like algorithm
-to work in integers throughout.  (The same idea is used for the
+Controlling it is a Raspberry Pi Pico with a level-shifter/driver to
+interface with the displays.  The software is in C++, and updates the
+display at about 100Hz, using a Bresenham-like algorithm to perform
+all calculations with integers.  (The same idea is used for the
 JavaScript running the demos on this page.)
 
 <div style="display:flex;flex-direction:row;justify-content:space-evenly;flex-wrap:wrap;">
